@@ -1,3 +1,3 @@
-# React Apps
+# Stopwatch
 
 ## Developer: Tupalski Ilya
