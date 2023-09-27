@@ -1,0 +1,27 @@
+.App {
+    text-align: center;
+    display: grid;
+    grid-template-columns: 50% 30% 20%;
+}
+
+.coin h1 {
+    font-size: 20px;
+    /* margin-top: 70px; */
+}
+
+.coin {
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
