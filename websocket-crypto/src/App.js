@@ -1,19 +1,18 @@
 import "./App.css";
-import Btcusdt from "./components/WsCoin";
-import XrpUsdt from "./components/XrpUsdt";
+import Bnb from "./components/Bnb";
+import Btc from "./components/Btc";
+import Eth from "./components/Eth";
+import Sol from "./components/Sol";
+import Xrp from "./components/Xrp";
 
 function App() {
     return (
         <div className="App">
-            <Btcusdt />
-            <XrpUsdt />
-            <XrpUsdt />
-            <XrpUsdt />
-            <XrpUsdt />
-            <XrpUsdt />
-            <XrpUsdt />
-            <XrpUsdt />
-            <XrpUsdt />
+            <Btc />
+            <Xrp />
+            <Eth />
+            <Sol />
+            <Bnb />
         </div>
     );
 }

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 
 const ws = new WebSocket("wss://stream.binance.com:9443/ws");
 
-export default function XrpUsdt({ symbol }) {
+export default function Xrp({ symbol }) {
     ws.onopen = function (ev) {
-        console.log("Open conection");
         ws.send(
             JSON.stringify({
                 method: "SUBSCRIBE",
@@ -15,7 +15,7 @@ export default function XrpUsdt({ symbol }) {
     };
 
     ws.onclose = function (ev) {
-        console.log("Close conection");
+        alert("Close conection");
     };
 
     const [coinObj, setCoinObj] = useState([]);
@@ -24,21 +24,27 @@ export default function XrpUsdt({ symbol }) {
 
     useEffect(() => {
         ws.addEventListener("message", (e) => {
-            // console.log(JSON.parse(e.data));
             const coinInfoParse = JSON.parse(e.data);
-            if (coinInfoParse.p > coinObj.p) {
-                setBgColorPrice("green");
-            } else if (coinInfoParse.p < coinObj.p) {
-                setBgColorPrice("red");
-            }
+            setBgColorPrice(coinInfoParse.p > coinObj.p ? "green" : "red");
             setCoinObj(coinInfoParse);
         });
     }, [coinObj]);
 
     return (
-        <div className="coin">
-            <h1>Product id: {coinObj.s}</h1>
-            <h1 className={bgColorPrice}>Price: {coinObj.p}</h1>
+        <div className={`coin ${bgColorPrice}`}>
+            <img
+                width={100}
+                src="https://cdn-icons-png.flaticon.com/512/6001/6001650.png"
+                alt="xrp"
+            />
+            <h1>XRP</h1>
+            <h2>
+                {isNaN(Number(coinObj.p).toFixed(3)) ? (
+                    <ClipLoader color="#fff" />
+                ) : (
+                    Number(coinObj.p).toFixed(4)
+                )}
+            </h2>
         </div>
     );
 }
