@@ -1,0 +1,30 @@
+.weatherInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10em;
+    gap: 12em;
+    font-family: "Roboto Mono", monospace;
+}
+
+.dayInfo {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.dayInfo h2 {
+    font-size: 90px;
+    font-weight: bold;
+}
+
+.dayInfo h3 {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.timeZoneWrapper {
+    color: #fff;
+    font-size: 30px;
+}
